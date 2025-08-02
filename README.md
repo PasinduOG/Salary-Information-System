@@ -7,8 +7,13 @@ A Java-based console application that provides comprehensive salary-related calc
 ### 1. Income Tax Calculator
 Calculates monthly income tax based on progressive tax brackets:
 - **No tax** for salaries ≤ Rs. 100,000
-- **Progressive rates** from 6% to 36% for higher salary brackets
-- Accurate tax computation using Sri Lankan tax structure
+- **6%** for salaries between Rs. 100,000 - Rs. 141,667
+- **18%** for salaries between Rs. 141,667 - Rs. 183,333
+- **36%** for salaries between Rs. 183,333 - Rs. 225,000
+- **60%** for salaries between Rs. 225,000 - Rs. 266,667
+- **90%** for salaries between Rs. 266,667 - Rs. 308,333
+- Higher bracket calculation for salaries above Rs. 308,333
+- Results displayed as rounded integers
 
 ### 2. Annual Bonus Calculator
 Determines annual bonus based on salary tiers:
@@ -23,8 +28,9 @@ Calculates maximum loan eligibility:
 - **Minimum salary requirement**: Rs. 50,000
 - **Maximum loan period**: 5 years
 - **Interest rate**: 15% per annum
-- **Maximum monthly installment**: 60% of salary
-- Uses compound interest formula for accurate calculations
+- **Monthly installment**: Fixed at 60% of salary
+- Loan amount calculated using monthly installment payment formula
+- Result rounded to nearest thousand
 
 ## How to Use
 
@@ -72,5 +78,10 @@ Enter an option to continue >
 
 - **Language**: Java
 - **Input Method**: Scanner class for console input
-- **Calculation Method**: Progressive tax brackets and compound interest formulas
-- **Output Format**: Formatted console display with clear section headers 
+- **Calculation Method**: 
+  - Income Tax: Progressive tax brackets with rates from 6% to 36%
+  - Annual Bonus: Percentage based on salary tiers
+  - Loan: Monthly installment method using (PMT × (1 - (1 / (1 + r)^n))) / r formula
+    where PMT = 60% of salary, r = monthly interest rate (15%/12), n = loan term in months
+- **Error Handling**: Includes validation for loan eligibility (salary ≥ Rs. 50,000)
+- **Output Format**: Clearly formatted console display with section headers and borders 
